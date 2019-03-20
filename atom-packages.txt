@@ -1,0 +1,7 @@
+atom-beautify
+autosave
+busy-signal
+intentions
+linter
+linter-eslint
+linter-ui-default
