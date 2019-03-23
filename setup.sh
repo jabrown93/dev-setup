@@ -21,21 +21,23 @@ else
   echo "Brew already installed, skipping..."
 fi
 
+echo "Installing Brewfile packages..."
+brew bundle
+brew cleanup
+
 if [ ! -O /usr/local/n ]; then
   echo "Creating n directory, requires sudo..."
   sudo mkdir /usr/local/n/
   sudo chown `whoami`:admin /usr/local/n/
+  echo "Installing LTS Node"
+  n lts
 fi
-
-echo "Installing Brewfile packages..."
-brew bundle
-brew cleanup
 
 if [ ! -f /usr/local/bin/git-prune ]; then
   echo "Installing git-prune..."
   cp utils/git-prune /usr/local/bin/git-prune
 else
-  echo "Git Orune already exists, skipping..."
+  echo "Git Prune already exists, skipping..."
 fi
 
 if [ ! -f ~/.bash_profile ]; then
