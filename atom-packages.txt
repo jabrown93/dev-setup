@@ -1,5 +1,4 @@
 atom-beautify
-autosave
 busy-signal
 intentions
 linter

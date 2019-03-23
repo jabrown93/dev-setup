@@ -24,7 +24,6 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/sbin:$PATH"
 export AWS_DEFAULT_REGION=us-west-2
 export AWS_PROFILE=default
-source ~/.bashrc
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
