@@ -1,0 +1,6 @@
+atom-beautify
+busy-signal
+intentions
+linter
+linter-eslint
+linter-ui-default

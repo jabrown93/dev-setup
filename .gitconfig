@@ -1,0 +1,22 @@
+[user]
+	name = Jared Brown
+	email = jabrown93@ucla.edu
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[alias]
+	co = checkout
+	cob = checkout -b
+	cm = commit
+	cma = commit -am
+	amend = commit -a --amend
+	undo = reset HEAD~1 --mixed
+	st = status
+	po=remote prune origin
+	pu=![[ $(git config branch.$(git symbolic-ref --short HEAD).merge) = '' ]] && git push -u origin $(git symbolic-ref --short HEAD) || git push
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
