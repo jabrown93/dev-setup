@@ -61,7 +61,7 @@ else
   echo "Atom not installed, skipping..."
 fi
 
-if [ ! -D ~/.oh-my-zsh ]; then
+if [ ! -O ~/.oh-my-zsh ]; then
   echo "Installing Oh My ZSH..."
   curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
   sh install.sh --unattended
