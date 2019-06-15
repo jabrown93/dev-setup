@@ -60,3 +60,21 @@ if [ -f /usr/local/bin/atom ]; then
 else
   echo "Atom not installed, skipping..."
 fi
+
+if [ ! -D ~/.oh-my-zsh ]; then
+  echo "Installing Oh My ZSH..."
+  curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+  sh install.sh --unattended
+
+  echo "Installing Powerline Fonts..."
+  git clone https://github.com/powerline/fonts.git --depth=1
+  cd fonts
+  ./install.sh
+  cd ..
+  rm -rf fonts
+
+  cp .zshrc ~/.zshrc
+  chsh -s $(which zsh)
+else
+  echo "Oh My ZSH already installed, skipping..."
+fi
