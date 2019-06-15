@@ -63,7 +63,8 @@ fi
 
 if [ ! -D ~/.oh-my-zsh ]; then
   echo "Installing Oh My ZSH..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+  sh install.sh --unattended
 
   echo "Installing Powerline Fonts..."
   git clone https://github.com/powerline/fonts.git --depth=1
