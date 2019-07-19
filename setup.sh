@@ -65,6 +65,7 @@ if [ ! -O ~/.oh-my-zsh ]; then
   echo "Installing Oh My ZSH..."
   curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
   sh install.sh --unattended
+  rm install.sh
 
   echo "Installing Powerline Fonts..."
   git clone https://github.com/powerline/fonts.git --depth=1
@@ -75,6 +76,19 @@ if [ ! -O ~/.oh-my-zsh ]; then
 
   cp .zshrc ~/.zshrc
   chsh -s $(which zsh)
+else
+  echo "Oh My ZSH already installed, skipping..."
+fi
+
+if [ ! -f ~/.jenv/version]; then
+  echo "Setting up jenv"
+  jenv enable-plugin maven
+  jenv enable-plugin export
+
+  jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/
+  jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/
+
+  jenv global 11.0
 else
   echo "Oh My ZSH already installed, skipping..."
 fi
