@@ -65,6 +65,7 @@ if [ ! -D ~/.oh-my-zsh ]; then
   echo "Installing Oh My ZSH..."
   curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
   sh install.sh --unattended
+  rm install.sh
 
   echo "Installing Powerline Fonts..."
   git clone https://github.com/powerline/fonts.git --depth=1

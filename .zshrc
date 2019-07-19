@@ -68,7 +68,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git docker docker-compose brew)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -104,7 +104,7 @@ alias ls='ls -G'
 alias ll='ls -laG'
 alias git_prune='/usr/local/bin/git-prune'
 alias finder-hide-hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder"
-export TIME='\t%E real,\t%U user,\t%S sys,\t%K amem,\t%M mmem'
+alias finder-show-hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder"
 
 ssh-add -K -q
 
@@ -114,7 +114,6 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:~/Library/Python/2.7/bin
 export PATH=/usr/local/openssl/bin:$PATH
 export MANPATH=/usr/local/openssl/ssl/man:$MANPATH
-export GOPATH=~/Riot/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="/usr/local/sbin:$PATH"
 export AWS_DEFAULT_REGION=us-west-2
