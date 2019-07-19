@@ -78,3 +78,16 @@ if [ ! -D ~/.oh-my-zsh ]; then
 else
   echo "Oh My ZSH already installed, skipping..."
 fi
+
+if [ ! -f ~/.jenv/version]; then
+  echo "Setting up jenv"
+  jenv enable-plugin maven
+  jenv enable-plugin export
+
+  jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/
+  jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/
+
+  jenv global 11.0
+else
+  echo "Oh My ZSH already installed, skipping..."
+fi

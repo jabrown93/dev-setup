@@ -112,8 +112,6 @@ ssh-add -K -q
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/Library/Python/2.7/bin
-#export JAVA_HOME=$(/usr/libexec/java_home)
-export JAVA_HOME=~/.jenv/versions/1.8
 export PATH=/usr/local/openssl/bin:$PATH
 export MANPATH=/usr/local/openssl/ssl/man:$MANPATH
 export GOPATH=~/Riot/go
