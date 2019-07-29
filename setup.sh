@@ -90,5 +90,12 @@ if [ ! -f ~/.jenv/version]; then
 
   jenv global 11.0
 else
-  echo "Oh My ZSH already installed, skipping..."
+  echo "Jenv already configured, skipping..."
+fi
+if [ ! -f ~/.pyenv/version]; then
+  echo "Setting up pyenv"
+  pyenv install 3.7.4
+  pyenv global 3.7.4
+else
+  echo "Pyenv already configured, skipping..."
 fi

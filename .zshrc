@@ -122,3 +122,6 @@ export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export TIME='\t%E real,\t%U user,\t%S sys,\t%K amem,\t%M mmem'
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
