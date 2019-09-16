@@ -108,8 +108,13 @@ alias finder-show-hidden="defaults write com.apple.finder AppleShowAllFiles YES 
 
 ssh-add -K -q
 
-# Setting PATH for Python 2.7
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+source /usr/local/opt/bake/bin/bake-completion.sh
+
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/Library/Python/2.7/bin
 export PATH=/usr/local/openssl/bin:$PATH
@@ -119,9 +124,11 @@ export PATH="/usr/local/sbin:$PATH"
 export AWS_DEFAULT_REGION=us-west-2
 export AWS_PROFILE=default
 export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export TIME='\t%E real,\t%U user,\t%S sys,\t%K amem,\t%M mmem'
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+
+eval "$(jenv init -)"
 eval "$(pyenv init -)"
