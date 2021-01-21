@@ -13,6 +13,12 @@ if [ ! -f ~/.ssh/id_rsa ]; then
   ssh-add ~/.ssh/id_rsa
 fi
 
+if [ ! -f ~/.ssh/id_ed25519 ]; then
+  echo "Generating ED25519 Key Pair..."
+  ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
+  ssh-add ~/.ssh/id_ed25519
+fi
+
 if [ ! -f /usr/local/bin/brew ]; then
   echo "Installing brew..."
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -80,7 +86,7 @@ else
   echo "Oh My ZSH already installed, skipping..."
 fi
 
-if [ ! -f ~/.jenv/version]; then
+if [ ! -f ~/.jenv/version ; then
   echo "Setting up jenv"
   jenv enable-plugin maven
   jenv enable-plugin export
@@ -92,7 +98,7 @@ if [ ! -f ~/.jenv/version]; then
 else
   echo "Jenv already configured, skipping..."
 fi
-if [ ! -f ~/.pyenv/version]; then
+if [ ! -f ~/.pyenv/version ]; then
   echo "Setting up pyenv"
   pyenv install 3.7.4
   pyenv global 3.7.4
