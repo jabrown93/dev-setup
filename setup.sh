@@ -34,7 +34,7 @@ brew cleanup
 if [ ! -O /usr/local/n ]; then
   echo "Creating n directory, requires sudo..."
   sudo mkdir /usr/local/n/
-  sudo chown `whoami`:admin /usr/local/n/
+  sudo chown "$(whoami)":admin /usr/local/n/
   echo "Installing LTS Node"
   n lts
 fi
@@ -75,24 +75,25 @@ if [ ! -O ~/.oh-my-zsh ]; then
 
   echo "Installing Powerline Fonts..."
   git clone https://github.com/powerline/fonts.git --depth=1
-  cd fonts
+  cd fonts || exit
   ./install.sh
   cd ..
   rm -rf fonts
 
   cp .zshrc ~/.zshrc
-  chsh -s $(which zsh)
+  chsh -s "$(which zsh)"
 else
   echo "Oh My ZSH already installed, skipping..."
 fi
 
-if [ ! -f ~/.jenv/version ; then
+if [ ! -f ~/.jenv/version ]; then
   echo "Setting up jenv"
   jenv enable-plugin maven
   jenv enable-plugin export
 
   jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home/
   jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home/
+  jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-15.jdk/Contents/Home/
 
   jenv global 11.0
 else
