@@ -35,22 +35,16 @@ if [ ! -O /usr/local/n ]; then
   echo "Creating n directory, requires sudo..."
   sudo mkdir /usr/local/n/
   sudo chown "$(whoami)":admin /usr/local/n/
-  echo "Installing LTS Node"
-  n lts
 fi
+
+echo "Installing LTS Node"
+n lts
 
 if [ ! -f /usr/local/bin/git-prune ]; then
   echo "Installing git-prune..."
   cp utils/git-prune /usr/local/bin/git-prune
 else
   echo "Git Prune already exists, skipping..."
-fi
-
-if [ ! -f ~/.bash_profile ]; then
-  echo "Adding bash profile..."
-  cat .bash_profile >> ~/.bash_profile
-else
-  echo "Bash profile already exists, skipping..."
 fi
 
 if [ ! -f ~/.gitconfig ]; then
@@ -101,8 +95,8 @@ else
 fi
 if [ ! -f ~/.pyenv/version ]; then
   echo "Setting up pyenv"
-  pyenv install 3.7.4
-  pyenv global 3.7.4
+  pyenv install 3.9.5
+  pyenv global 3.9.5
 else
   echo "Pyenv already configured, skipping..."
 fi

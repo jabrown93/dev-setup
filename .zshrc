@@ -68,9 +68,19 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose brew)
+plugins=(git
+                  docker
+                  docker-compose
+                  osx
+                  gpg-agent
+                  iterm2
+                  thefuck
+                  jsontools
+                  keychain
+                  brew)
 
 source $ZSH/oh-my-zsh.sh
+eval $(thefuck --alias)
 
 # User configuration
 
@@ -101,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Custom below this line
 alias ls='ls -G'
-alias ll='ls -laG'
+alias ll='ls -lG'
 alias git_prune='/usr/local/bin/git-prune'
 alias finder-hide-hidden="defaults write com.apple.finder AppleShowAllFiles NO && killall Finder"
 alias finder-show-hidden="defaults write com.apple.finder AppleShowAllFiles YES && killall Finder"
@@ -112,7 +122,6 @@ autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
 fpath=(/usr/local/share/zsh-completions $fpath)
-source /usr/local/opt/bake/bin/bake-completion.sh
 
 export PATH=$PATH:~/bin
 export PATH=/usr/local/openssl/bin:$PATH
